@@ -2129,11 +2129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\p1357911\\source\\repos\\VMS2.0\\VMS2.0.csproj",
+      "projectUniqueName": "C:\\Users\\p1357911\\Desktop\\intenal\\VMS2.0\\Back-End\\VMS2.0\\VMS2.0.csproj",
       "projectName": "VMS2.0",
-      "projectPath": "C:\\Users\\p1357911\\source\\repos\\VMS2.0\\VMS2.0.csproj",
+      "projectPath": "C:\\Users\\p1357911\\Desktop\\intenal\\VMS2.0\\Back-End\\VMS2.0\\VMS2.0.csproj",
       "packagesPath": "C:\\Users\\p1357911\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\p1357911\\source\\repos\\VMS2.0\\obj\\",
+      "outputPath": "C:\\Users\\p1357911\\Desktop\\intenal\\VMS2.0\\Back-End\\VMS2.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\p1357911\\AppData\\Roaming\\NuGet\\NuGet.Config",

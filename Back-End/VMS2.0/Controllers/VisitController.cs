@@ -1,32 +1,68 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VMS2._0.DTO;
 using VMS2._0.Services.IService;
 
 namespace VMS2._0.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class VisitController : ControllerBase
     {
         private readonly IVisitService _visitService;
+
         public VisitController(IVisitService visitService)
         {
             _visitService = visitService;
-        } // Constructor end
+        }
 
         [HttpPost]
-        public async Task<IActionResult> InitiateVisit([FromBody] InitiateVisitDTO initiateVisitDto)
+        public async Task<IActionResult> InitiateVisit([FromBody] InitiateVisitDTO initiateVisitDTO)
         {
-            var visitId = await _visitService.InitiateVisitAsync(initiateVisitDto);
-            if (visitId > 0)
+            // Logic will be implemented in the service layer
+            var result = await _visitService.InitiateVisitAsync(initiateVisitDTO);
+
+            if (result.Status == "success")
             {
-                return Ok(new { status = "success", visitID = visitId });
+                return Ok(result);
             }
-            return BadRequest(new { status = "failure", message = "Could not initiate visit." });
-        }//- InitiateVisit end
+            else
+            {
+                return BadRequest(result);
+            }
+        }//- InitiateVisit
 
 
 
-    }// Controller end
+
+
+
+        // Update Visit Status
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateVisitStatus(int id, [FromBody] string visitStatus)
+        {
+            return Ok();
+        }
+
+        // Get All Visits for a Host
+        [HttpGet("host/{hostEmail}")]
+        public async Task<IActionResult> GetAllVisitsByHost(string hostEmail)
+        {
+            return Ok();
+        }
+
+        // Delete a Visit
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVisit(int id)
+        {
+            return Ok();
+        }
+
+        // Get Visit by ID
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVisitById(int id)
+        {
+            return Ok();
+        }
+    }
 }
