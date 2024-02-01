@@ -4,10 +4,10 @@ namespace VMS2._0.DTO
 {
     public class URLManagementDTO
     {
-        public int URLID { get; set; }
+        public string URLID { get; set; }
 
         [Required]
-        public int VisitID { get; set; }
+        public string VisitID { get; set; }
 
         [Required]
         public DateTime ExpirationTime { get; set; }

@@ -9,10 +9,10 @@ namespace VMS2._0.Models
     public class SecondaryInfo
     {
         [Key]
-        public int SecondaryInfoID { get; set; }
+        public string SecondaryInfoID { get; set; }
 
         [ForeignKey("VisitorID")]
-        public int VisitorID { get; set; }
+        public string VisitorID { get; set; }
 
         [EmailAddress]
         public string AlternateEmail { get; set; }

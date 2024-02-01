@@ -9,10 +9,10 @@ namespace VMS2._0.Models
     public class URLManagement
     {
         [Key]
-        public int URLID { get; set; }
+        public string URLID { get; set; }
 
         [ForeignKey("VisitID")]
-        public int VisitID { get; set; }
+        public string VisitID { get; set; }
 
         [Required]
         public DateTime ExpirationTime { get; set; }

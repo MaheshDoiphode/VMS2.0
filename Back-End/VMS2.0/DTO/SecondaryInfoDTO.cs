@@ -4,10 +4,10 @@ namespace VMS2._0.DTO
 {
     public class SecondaryInfoDTO
     {
-        public int SecondaryInfoID { get; set; }
+        public string SecondaryInfoID { get; set; }
 
         [Required]
-        public int VisitorID { get; set; }
+        public string VisitorID { get; set; }
 
         [EmailAddress]
         public string AlternateEmail { get; set; }

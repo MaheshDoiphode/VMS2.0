@@ -9,10 +9,10 @@ namespace VMS2._0.Models
     public class Notification
     {
         [Key]
-        public int NotificationID { get; set; }
+        public string NotificationID { get; set; }
 
         [ForeignKey("VisitID")]
-        public int VisitID { get; set; }
+        public string VisitID { get; set; }
 
         [Required]
         public string Message { get; set; }

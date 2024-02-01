@@ -1,3 +1,25 @@
+A visitor management system for the IT company which helps in inviting the visitor and all through a process like i explained below. I want you to analyze the things i have thought of and tell me if i should change something and suggest me if i can add more things in it. 
+Tables in the DB -
+Table 1. Visitor -  Stores info about the Visitor. 
+VisitorID(PK), Title (Mr, Mrs), FName, LName, VisitorEmail, VisitorNumber, VisitorAddress, IdentityType(PAN Card, Passport), IdentityNumber, Image. 
+Table 2. Visits - It stores information about the Visits done to the company. 
+VisitID (PK), VisitorID (FK), HostName, HostEmail, Purpose of Visit, ExpectedArrival, ExpectedDepart, Visit Duration, RequestStatus (Approved, Rejected), CheckIn(Actual when user comes), CheckOut (Actual checkout by the user), FeedBack, VisitStatus(Completed, Scheduled, Missed, Rejected).
+Table 3. Notifications - It stores each and every mail/event/notification that is being sent from host, admin, and visitor. 
+NotificationID (PK), VisitID(FK), Message, NotificationType (Feedback, Request to admin, Confirmation to host, Confirmation to Visitor, Inform to Reception). 
+Table 4. Users - This is a temporary table which is not required in real time as we will be using the microsoft authentication and all in real time when project goes live but until then for the developement purpose we will store host information like host name, email and all, and all in this table. 
+
+
+The Host is a company employee who goes to the portal and fills up the required details like Visitor name, Visitor email address, purpose of the visit, ExpectedArrival, ExpectedDepart,  (If the visitor has already visited before which we will find by checking the DB through the entered email id, if yes then while filling the form user will be able to tell if its right).
+
+The request is then sent to the admin, admin either accept or reject it. If rejected then only the notification email will be sent to the host with the reason and the Requeststatus of the visit will be updated along with the VisitStatus field to set to Rejected. 
+If accepted then the host and visitor will be send a mail about the same. The host outlook calendar will be booked and the calendar of the Visitor will also be booked according to the service he's using, gmail, outlook or anything. 
+When the Admin accepts the request, at that time a onetime link will be generated which will be a form sent to the Visitor to fill his details if he's not before registered and he has to fill the details to feed to the Visitor table i gave you above. If user is already registered then he will not get that link. 
+A notification will be sent to the receptionist also when the request is approved by the admin with only the required details that might be necessary at the reception and not more revealing. 
+
+When the Visitor comes to the office then the CheckIn will be updated and when he leaves then the checkout will be updated. Now as there might be visitors whose visit is for multiple days so we will check if the visit duration is more than 1 day and if no then we will send the feedback form to the visitor on his mail and VisitStatus field will also be updated to Completed. If the duration is more than 1 day then for each day a new visitID will be generated and we will send the feedback form and update the VisitStatus on that day only.
+
+____
+
 Tables:
 1. Visitor: VisitorID, Title, FName, LName, VisitorEmail, VisitorNumber, Address, IdentityType, IdentityNumber, Image
 
@@ -493,4 +515,61 @@ public class UserDTO
 
         public byte[] Image { get; set; }
     }
+
+
+
+_____________________________________________
+Hardcoded -  
+
+VisitService.InitiateVisitAsync.HostSendVisitNotificationToAdminForApprovalAsync - hard coded the admin email passed to it. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

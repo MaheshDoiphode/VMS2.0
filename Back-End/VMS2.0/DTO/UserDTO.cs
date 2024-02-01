@@ -4,7 +4,7 @@ namespace VMS2._0.DTO
 {
     public class UserDTO
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         [Required]
         public string UserName { get; set; }

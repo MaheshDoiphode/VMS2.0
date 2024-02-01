@@ -9,12 +9,12 @@ namespace VMS2._0.Models
     public class Visit
     {
         [Key]
-        public int VisitID { get; set; }
+        public string VisitID { get; set; }
 
-        public int? ParentVisitID { get; set; }
+        public string? ParentVisitID { get; set; }
 
         [ForeignKey("VisitorID")]
-        public int VisitorID { get; set; }
+        public string VisitorID { get; set; }
 
         [Required]
         public string HostName { get; set; }
@@ -39,7 +39,7 @@ namespace VMS2._0.Models
         [Required]
         public string RequestStatus { get; set; }
 
-        public string Feedback { get; set; }
+        public string? Feedback { get; set; }
 
         [Required]
         public string VisitStatus { get; set; }

@@ -4,16 +4,9 @@ namespace VMS2._0.DTO
 {
     public class VisitorDTO
     {
-        public int VisitorID { get; set; }
+        public string? VisitorID { get; set; }
 
-        [Required]
-        public string Title { get; set; }
-
-        [Required]
-        public string FName { get; set; }
-
-        [Required]
-        public string LName { get; set; }
+        public string? VisitorName { get; set; }
 
         [Required]
         [EmailAddress]
@@ -22,14 +15,12 @@ namespace VMS2._0.DTO
         [Required]
         public string VisitorNumber { get; set; }
 
-        public string VisitorAddress { get; set; }
+        public string? VisitorAddress { get; set; }
 
-        [Required]
-        public string IdentityType { get; set; }
+        public string? IdentityType { get; set; }
 
-        [Required]
-        public string IdentityNumber { get; set; }
+        public string? IdentityNumber { get; set; }
 
-        public byte[] Image { get; set; }
+        public byte[]? Image { get; set; }
     }
 }

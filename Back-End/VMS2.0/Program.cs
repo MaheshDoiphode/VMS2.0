@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Encodings.Web;
 using VMS2._0.Data;
 using VMS2._0.Repositories;
 using VMS2._0.Repositories.IRepository;
@@ -24,14 +25,19 @@ builder.Services.AddDbContext<VMSDbContext>(options =>
 builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
 builder.Services.AddScoped<IVisitRepository, VisitRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+// builder.Services.AddScoped<IURLRepository, URLRepository>();
+
 
 // Register services
 builder.Services.AddScoped<IVisitorService, VisitorService>();
 builder.Services.AddScoped<IVisitService, VisitService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IURLService, URLService>();
+
 
 // Other configurations
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
